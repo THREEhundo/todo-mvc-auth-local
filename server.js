@@ -1,5 +1,4 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
 const mongoose = require('mongoose')
@@ -44,7 +43,7 @@ app.use(
 		secret: 'keyboard cat',
 		resave: false,
 		saveUninitialized: false,
-		store: new MongoStore({ mongooseConnection: mongoose.connection }),
+		store: new MongoStore({ mongooseConnection: mongoose.connection })
 	})
 )
 

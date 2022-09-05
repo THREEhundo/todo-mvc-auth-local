@@ -7,7 +7,7 @@ exports.getLogin = (req, res) => {
 		return res.redirect('/trip/dashboard')
 	}
 	res.render('login', {
-		title: 'Login',
+		title: 'Login'
 	})
 }
 
@@ -23,7 +23,7 @@ exports.postLogin = (req, res, next) => {
 		return res.redirect('/login')
 	}
 	req.body.email = validator.normalizeEmail(req.body.email, {
-		gmail_remove_dots: false,
+		gmail_remove_dots: false
 	})
 
 	passport.authenticate('local', (err, user, info) => {
@@ -61,7 +61,7 @@ exports.getSignup = (req, res) => {
 		return res.redirect('/trip/dashboard')
 	}
 	res.render('signup', {
-		title: 'Create Account',
+		title: 'Create Account'
 	})
 }
 
@@ -71,7 +71,7 @@ exports.postSignup = (req, res, next) => {
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
 	if (!validator.isLength(req.body.password, { min: 8 }))
 		validationErrors.push({
-			msg: 'Password must be at least 8 characters long',
+			msg: 'Password must be at least 8 characters long'
 		})
 	if (req.body.password !== req.body.confirmPassword)
 		validationErrors.push({ msg: 'Passwords do not match' })
@@ -81,13 +81,13 @@ exports.postSignup = (req, res, next) => {
 		return res.redirect('../signup')
 	}
 	req.body.email = validator.normalizeEmail(req.body.email, {
-		gmail_remove_dots: false,
+		gmail_remove_dots: false
 	})
 
 	const user = new User({
 		userName: req.body.userName,
 		email: req.body.email,
-		password: req.body.password,
+		password: req.body.password
 	})
 
 	User.findOne(
@@ -98,7 +98,7 @@ exports.postSignup = (req, res, next) => {
 			}
 			if (existingUser) {
 				req.flash('errors', {
-					msg: 'Account with that email address or username already exists.',
+					msg: 'Account with that email address or username already exists.'
 				})
 				return res.redirect('../signup')
 			}

@@ -4,7 +4,5 @@ module.exports = {
 			return `<a href="edit/${tripId}">edit</a>`
 		}
 		return ''
-	},
+	}
 }
-
-// ! arguments --> trip id, user id, trip user id
