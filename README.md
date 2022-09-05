@@ -39,4 +39,4 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
   - DB_STRING: `your database URI` 
  ---
  
- Have fun testing and improving it! 😎
+ Have fun testing and improving it!! 😎
